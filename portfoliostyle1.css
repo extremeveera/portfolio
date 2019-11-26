@@ -1,0 +1,17 @@
+body {background-color: Black;}
+h1 {color: White; text-align: center;}
+p {color: White; text-align: center;}
+ul.a {color: White; text-align: center; list-style-type: circle; list-style-position: inside;}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+
+.smallimg{
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+}
