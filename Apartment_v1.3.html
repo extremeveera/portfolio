@@ -11,7 +11,7 @@
 
 <tw-story></tw-story>
 
-<tw-storydata name="Apartment" startnode="14" creator="Twine" creator-version="2.3.5" ifid="7327B94B-390A-442E-A2C1-206B04C4D9F4" zoom="0.6" format="Harlowe" format-version="3.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* This disables the back button */
+<tw-storydata name="Apartment" startnode="14" creator="Twine" creator-version="2.3.9" ifid="7327B94B-390A-442E-A2C1-206B04C4D9F4" zoom="0.6" format="Harlowe" format-version="3.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* This disables the back button */
 tw-sidebar
 {
 display: none;
@@ -34,10 +34,10 @@ img.map {
 /** End of HAL code */</script><tw-tag name="item" color="green"></tw-tag>,<tw-tag name="object" color="yellow"></tw-tag>,<tw-tag name="space" color="blue"></tw-tag><tw-passagedata pid="1" name="SPACE: Livingroom" tags="space" position="805,1587" size="100,100">{
 (track: &#39;background&#39;, &#39;loop&#39;, true)
 (track: &#39;background&#39;, &#39;playwhenpossible&#39;)
-}(if: (count: (history:), &quot;Examine Livingroom&quot;) is 0)[(You&#39;re laying on the floor, unsure where you are. The space is unfamiliar to you.)
-](elseif: (count: (history:), &quot;Examine Livingroom&quot;) is 1)[&quot;Huh, what is that smell...&quot;
+}(if: (count: (history:), &quot;Examine Livingroom&quot;) is 0)[(You wake up on the floor feeling dizzy. Looking around, you see the unfamiliar sight of a dim, dusty livingroom. You have no clue where you are, or how you got there.)
+](elseif: (count: (history:), &quot;Examine Livingroom&quot;) is 1)[A damp, rotten smell catches your nose. &quot;Hm? What IS that smell?&quot;
 ---
-] (elseif: (count: (history:), &quot;Examine Livingroom&quot;) &gt; 1)[(It&#39;s the living room.)
+] (elseif: (count: (history:), &quot;Examine Livingroom&quot;) &gt; 1)[(It&#39;s the living room. Dusty, warm, and dark.)
 ---
 ]
 Player actions (if: $inventory contains &quot; a map&quot;)[&lt;img class=&quot;map&quot; src=&quot;https://i.imgur.com/aTAgaPp.jpg&quot; width=&quot;400&quot; height=&quot;346&quot; alt=&quot;Livingroom&quot;&gt;]
@@ -49,7 +49,7 @@ Livingroom actions
 Move to...
 [[...the kitchen-&gt;SPACE: Kitchen]]
 [[...the hallway-&gt;SPACE: Hallway]]
-[[...the balcony-&gt;SPACE: Balcony]]]</tw-passagedata><tw-passagedata pid="2" name="SPACE: Balcony" tags="space" position="384,1257" size="100,100">(if: not ($inventory contains &quot; a rusty crowbar&quot;))[(The window glass on the door is painted with black paint. You can&#39;t see through it. The balcony door is stuck. You&#39;re going to need a tool to break it open.)]
+[[...the balcony-&gt;SPACE: Balcony]]]</tw-passagedata><tw-passagedata pid="2" name="SPACE: Balcony" tags="space" position="384,1257" size="100,100">(if: not ($inventory contains &quot; a rusty crowbar&quot;))[(The window glass on the door is painted with black paint. You can&#39;t see through. The balcony door is stuck. You&#39;re going to need a tool to break it open.)]
 (if: ($inventory contains &quot; a rusty crowbar&quot;) and not ((history:) contains &quot;OpenBalcony&quot;))[(The balcony door is stuck. You can feel yourself reaching for the crowbar.)
 
 [[&quot;Let&#39;s put this thing to work&quot;-&gt;OpenBalcony]]]
@@ -202,8 +202,7 @@ Move to...
 
 (if: ((count: (history:), &quot;Notice Key&quot;) &gt; 0) and ($inventory contains &quot;a key&quot;))[There&#39;s nothing else of interest.]
 [[OK!-&gt;SPACE: Kitchen]]</tw-passagedata><tw-passagedata pid="12" name="Examine Livingroom" tags="" position="959,1559" size="100,100">(if: (count: (history:), &quot;Examine Livingroom&quot;) is 0)
-[(You&#39;re in a dark, dirty room with a television, a couch, a small table and a lot of dust and trash. The place is really unkept, disgusting even. Ahead of you there&#39;s a door to a balcony, an open kitchen and a hallway to your right.
-You find a piece of paper next to you.)
+[(You&#39;re in a dark, dirty room with a television, a couch, a small coffee table and a lot of dust and trash. The place looks like it was abandoned twenty years ago. Ahead of you there&#39;s a door to a balcony, an open kitchen and a hallway to your right. You find a piece of paper next to you.)
 [[Pick it up.-&gt;Map]]]
 
 (elseif: (count: (history:), &quot;Examine Livingroom&quot;) is 1)[(While looking around, you believe you have stepped on something. There is something sticky in the bottom of your foot.)
@@ -218,15 +217,19 @@ $inventory
 [[...and nothing else!-&gt;SPACE: Livingroom]]</tw-passagedata><tw-passagedata pid="14" name="START" tags="" position="635,1847" size="100,100">(set: $inventory to (a: &quot;your empty pockets&quot;))Welcome to The Apartment.
 
 WARNING: Set your volume lower, the background music can be loud!
+
 [[Begin-&gt;SPACE: Livingroom]]
 (set: $OvenOff to false)
 (set: $gotAdvice to false)
 (set: $showerOn to false)
-(set: $flood to false)</tw-passagedata><tw-passagedata pid="15" name="Examine bedroom" tags="" position="1693,1745" size="100,100">(It&#39;s a regular bedroom full of laundry. You can detect a bed-shaped section under the dirty clothes. There&#39;s also a larger pile to your right, which seems to be a desk with a computer on it. Dim light comes through the window.)
+(set: $flood to false)
 
-[[&quot;This is a troubled place.&quot;-&gt;SPACE: Bedroom]]</tw-passagedata><tw-passagedata pid="16" name="Window" tags="object" position="1839,1868" size="100,100">Black paint again.
-[[Continue...-&gt;SPACE: Bedroom]]</tw-passagedata><tw-passagedata pid="17" name="Bed" tags="object" position="1998,1924" size="100,100">Many thoughts.
-[[Continue...-&gt;SPACE: Bedroom]]</tw-passagedata><tw-passagedata pid="18" name="The Computer" tags="object" position="2109,1696" size="100,100">(if: (history:) contains &quot;doubt&quot;)[(It&#39;s the PC. On the monitor there&#39;s a message:)
+Game by: Veera Nuorteva
+Audio: &quot;Ambient&quot; by Aapo Ritvanen</tw-passagedata><tw-passagedata pid="15" name="Examine bedroom" tags="" position="1693,1745" size="100,100">(It&#39;s a regular bedroom full of laundry. You can detect a bed-shaped section under the dirty clothes. There&#39;s also a larger pile to your right, which seems to be a desk with a computer on it. Dim light comes through the window.)
+
+[[&quot;This is a troubled place.&quot;-&gt;SPACE: Bedroom]]</tw-passagedata><tw-passagedata pid="16" name="Window" tags="object" position="1839,1868" size="100,100">(It&#39;s black paint again, covering the window. It&#39;s painted on very carefully, not an inch of glass can be seen.)
+[[&quot;There&#39;s no point in staring at it any longer.&quot;-&gt;SPACE: Bedroom]]</tw-passagedata><tw-passagedata pid="17" name="Bed" tags="object" position="1998,1924" size="100,100">(You lay on the pile of clothes that covers the bed. Dust particles fill the air around you. The pile is starting to feel warm under you. Your hand touches something wet. You start thinking about the reality of the situation. You drift off for a while.)
+[[Strangely serene...-&gt;SPACE: Bedroom]]</tw-passagedata><tw-passagedata pid="18" name="The Computer" tags="object" position="2109,1696" size="100,100">(if: (history:) contains &quot;doubt&quot;)[(It&#39;s the PC. On the monitor there&#39;s a message:)
 
 &quot;If you want to get in... Just knock. If you want to get out... Good luck.&quot;
 
@@ -313,7 +316,7 @@ $inventory
 
 [[&quot;Doesn&#39;t hurt to try. Maybe I&#39;ll find out something more about the person who lives here.&quot;-&gt;SPACE: Balcony]]
 (set: $inventory to $inventory +(a:&quot; a USB stick&quot;))</tw-passagedata><tw-passagedata pid="36" name="Key" tags="item" position="562,929" size="100,100">You got the key! (set: $inventory to $inventory +(a:&quot; a key&quot;))
-[[Continue...-&gt;SPACE: Kitchen]]</tw-passagedata><tw-passagedata pid="37" name="RemoveGoo" tags="" position="955,1691" size="100,100">(You stand on one foot, trying to examine the other. It looks like the material on your sock was once edible.)
+[[Continue...-&gt;SPACE: Kitchen]]</tw-passagedata><tw-passagedata pid="37" name="RemoveGoo" tags="" position="955,1691" size="100,100">(You stand on one foot, trying to examine the other. It looks like the dirt on your sock was once edible.)
 
 [[&quot;That&#39;s disgusting...&quot;-&gt;RemoveGoo2]]</tw-passagedata><tw-passagedata pid="38" name="RemoveGoo2" tags="" position="955,1813" size="100,100">(But what can you do about it? Will you remove your sock and expose youself to new dangers in this disgusting place, or suffer and keep it on?)
 
@@ -334,7 +337,7 @@ On the hallway there&#39;s a microwave oven and a large mirror on the wall.)
 [[&quot;Maybe this is his apartment&quot;-&gt;man]]
 (set: $inventory to $inventory + (a:&quot; a man&#39;s ID&quot;))</tw-passagedata><tw-passagedata pid="44" name="hal.tracks" tags="" position="500,1763" size="100,100">background: https://extremeveera.github.io/portfolio/audio/ambient.ogg</tw-passagedata><tw-passagedata pid="45" name="man" tags="" position="1599,912" size="100,100">(Where is he? Why am I here? Am I really here?)
 
-[[&quot;It does feel like a dream&quot;-&gt;dream]]</tw-passagedata><tw-passagedata pid="46" name="dream" tags="" position="1739,918" size="100,100">(Of course it does. There&#39;s no logical reason for being in a strange place such as this.)
+[[&quot;It does feel like a dream&quot;-&gt;dream]]</tw-passagedata><tw-passagedata pid="46" name="dream" tags="" position="1734,928" size="100,100">(Of course it does. There&#39;s no logical reason for being in a strange place such as this.)
 
 [[&quot;Maybe there&#39;s more to it than I think.&quot;-&gt;SPACE: Hallway]]</tw-passagedata><tw-passagedata pid="47" name="Examine Storage room" tags="" position="2010,1311" size="100,100">(if: $inventory contains &quot; a rusty crowbar&quot;)[It&#39;s just a messy dump.
 [[&quot;It&#39;s making me sick.&quot;-&gt;SPACE: Storage room]]]
@@ -350,11 +353,11 @@ On the hallway there&#39;s a microwave oven and a large mirror on the wall.)
 [[&quot;It&#39;s so cold, I hate it...&quot;-&gt;SPACE: Balcony]]
 ](else:)[(You look out, and you see you&#39;re in the top floor of a 4 storey apartment. The neighborhood looks grey and dull. Even though the sun is shining, everything seems monochrome. There&#39;s no one on the streets even though it&#39;s daytime.)
 
-[[&quot;And it&#39;s all so familiar at the same time. This can&#39;t be far from where I live, it&#39;s just...&quot;-&gt;stuff]]]</tw-passagedata><tw-passagedata pid="51" name="OpenBalcony" tags="" position="164,1102" size="100,100">(You stick the crowbar between the flaky wooden door and twist with all your power. The door gives in easier than you imagined. Did you always have all this strength?)
+[[&quot;And it&#39;s all so familiar at the same time. This can&#39;t be far from where I live.&quot;-&gt;stuff]]]</tw-passagedata><tw-passagedata pid="51" name="OpenBalcony" tags="" position="164,1102" size="100,100">(You stick the crowbar between the flaky wooden door and twist with all your power. The door gives in easier than you imagined. Did you always have all this strength?)
 
-[[&quot;And were my palms always this hairy?&quot;-&gt;Hairy palms]]</tw-passagedata><tw-passagedata pid="52" name="Hairy palms" tags="" position="34,1152" size="100,100">(It was the first time when you realized that you don&#39;t exactly feel right.)
+[[&quot;And did my hands always look so old?&quot;-&gt;Hairy palms]]</tw-passagedata><tw-passagedata pid="52" name="Hairy palms" tags="" position="34,1152" size="100,100">(It was the first time when you realized that you don&#39;t exactly feel right.)
 
-[[&quot;I need to find a mirror soon...&quot;-&gt;SPACE: Balcony]]</tw-passagedata><tw-passagedata pid="53" name="stuff" tags="" position="255,1529" size="100,100">(On the balcony itself, there&#39;s not much. Just a rugged carpet, that used to have pink stripes. It&#39;s been damaged by the moist and frost. One corner has bent on itself. You flip it over with your foot.)
+[[&quot;I need to find a mirror soon...&quot;-&gt;SPACE: Balcony]]</tw-passagedata><tw-passagedata pid="53" name="stuff" tags="" position="255,1529" size="100,100">(On the balcony itself, there&#39;s not a lot of things. Just a rugged carpet that used to have pink stripes. It&#39;s been damaged by moist and frost. One corner has flipped on itself by the wind. You flip it back over with your foot.)
 
 [[&quot;Oh? It&#39;s a USB stick.&quot;-&gt;USB stick]]</tw-passagedata><tw-passagedata pid="54" name="yelling" tags="" position="1471,558" size="100,100">(There is no answer. There&#39;s no way in at the moment.)
 
@@ -444,14 +447,36 @@ On the hallway there&#39;s a microwave oven and a large mirror on the wall.)
 [[Examine the mitten]]
 (set: $inventory to ($inventory + (a: &quot; a wet mitten&quot;)))</tw-passagedata><tw-passagedata pid="84" name="Examine the mitten" tags="" position="1841,580" size="100,100">(You hold the soaked woollen glove in your hands.)
 
-[[&quot;I think I know where to use this...&quot;-&gt;SPACE: Bathroom]]</tw-passagedata><tw-passagedata pid="85" name="takeKey" tags="" position="510,1122" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="86" name="opendoor" tags="" position="1663,725" size="100,100">(To your relief... The door opens to a staircase.)
+[[&quot;I think I know where to use this...&quot;-&gt;SPACE: Bathroom]]</tw-passagedata><tw-passagedata pid="85" name="opendoor" tags="" position="1663,725" size="100,100">(To your relief... The door opens to a staircase.)
 
-[[&quot;I&#39;m free...&quot;-&gt;orareyou]]</tw-passagedata><tw-passagedata pid="87" name="orareyou" tags="" position="1792,720" size="100,100">(This is the end of the test build. A few different endings will be available later. Thank you for playing!)
+[[&quot;I&#39;m free...&quot;-&gt;escape]]
+[[&quot;End&quot;-&gt;orareyou]]</tw-passagedata><tw-passagedata pid="86" name="orareyou" tags="" position="1660.3333333333333,845" size="100,100">(This is the end of the test build. A few different endings will be available later. Thank you for playing!)
 
 Credits:
 
 Audio: &quot;Ambient&quot; by Aapo Ritvanen
-Story and production: Veera Nuorteva</tw-passagedata></tw-storydata>
+Story and production: Veera Nuorteva</tw-passagedata><tw-passagedata pid="87" name="escape" tags="" position="1793.6666666666667,725" size="100,100">(You start running down the stairs, not even bothering to close the door behind you. You get down fast and open the door outside. The fresh air fills your lungs. It feels like it&#39;s suffocating you. The sun feels like acid on your bare skin. You feel like there&#39;s eyes on all the windows outside, watching you.)
+
+[[&quot;This doesn&#39;t feel safe... What do I do? I need to go back! No...&quot;-&gt;givein]]
+[[(Keep walking)-&gt;followtheurge]]</tw-passagedata><tw-passagedata pid="88" name="givein" tags="" position="1903.6666666666665,883.3333333333334" size="100,100">(You hesitate for a moment. You take a deep breath and look behind you. Suddenly you just see black. Your body falls to the ground.)
+
+[[&quot;Is this the end?&quot;-&gt;yourend]]</tw-passagedata><tw-passagedata pid="89" name="followtheurge" tags="" position="1920.3333333333333,735" size="100,100">(You wake up. It&#39;s your own bed in your own apartment. Your memories of the horrible strange place... They feel like a dream now. Yes, it must have been a dream.)
+
+[[(Time for morning coffee)-&gt;coffee2]]</tw-passagedata><tw-passagedata pid="90" name="yourend" tags="" position="2046.9999999999998,885.0000000000001" size="100,100">(You wake up. It&#39;s your own bed in your own apartment. Your memories of the horrible strange place... They feel like a dream now. Yes, it must have been a dream.)
+
+[[(Time for morning coffee)-&gt;coffee]]</tw-passagedata><tw-passagedata pid="91" name="coffee" tags="" position="2172,888.3333333333333" size="100,100">(You enjoy some coffee from your favorite mug. The sun is shining, as brightly as ever. You open the newspaper.)
+
+[[&quot;Let&#39;s see!&quot;-&gt;news]]</tw-passagedata><tw-passagedata pid="92" name="news" tags="" position="2170.3333333333335,1013.3333333333333" size="100,100">&quot;14.3.2020
+Last night a man was found dead on the 20th street apartment&#39;s parking lot. The police is investigating the case. Murder is not suspected.&quot;
+
+(You look at the picture of the man.)
+
+[[&quot;But that&#39;s... That&#39;s... It&#39;s him-&quot;-&gt;END1]]</tw-passagedata><tw-passagedata pid="93" name="END1" tags="" position="2402,801.6666666666665" size="100,100">THE END
+
+Thank you for playing The Apartment.
+
+Game by: Veera Nuorteva
+Audio: &quot;Ambient&quot; by Aapo Ritvanen</tw-passagedata><tw-passagedata pid="94" name="coffee2" tags="" position="2046.9999999999998,731.6666666666666" size="100,100">Double-click this passage to edit it.</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
